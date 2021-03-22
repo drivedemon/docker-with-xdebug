@@ -2,7 +2,6 @@ version: "3.7"
 services:
     app:
         image: drivedemon/php-node-composer-xdebug:latest
-#        image: songponlekpetch/php-node-composer:release-1.0.3
         container_name: pp-app-v3
         working_dir: /var/www/
         restart: unless-stopped
