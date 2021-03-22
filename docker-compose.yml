@@ -1,0 +1,57 @@
+version: "3.7"
+services:
+    app:
+        image: drivedemon/php-node-composer-xdebug:latest
+#        image: songponlekpetch/php-node-composer:release-1.0.3
+        container_name: pp-app-v3
+        working_dir: /var/www/
+        restart: unless-stopped
+        ports:
+            - "9000:9000"
+        volumes:
+            - ./:/var/www
+        extra_hosts:
+            - "dev-data-mart.peerpower.co.th:192.168.9.32"
+        networks:
+            - pp-app-v3
+
+    db:
+        image: mysql:5.7
+        container_name: pp-app-v3-db
+        restart: unless-stopped
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=pp-app-main
+            - MYSQL_USER=admin
+            - MYSQL_PASSWORD=1234
+        volumes:
+            - ./.docker/db_app_v3_data:/var/lib/mysql
+        networks:
+            - pp-app-v3
+
+    nginx:
+        image: nginx:alpine
+        container_name: pp-app-v3-nginx
+        restart: unless-stopped
+        ports:
+            - "80:80"
+        volumes:
+            - ./public:/var/www/public
+            - ./.docker/config/nginx:/etc/nginx/conf.d
+        networks:
+            - pp-app-v3
+
+    redis:
+        image: redis
+        container_name: pp-app-v3-redis
+        restart: unless-stopped
+        ports:
+            - "6379:6379"
+        networks:
+            - pp-app-v3
+
+networks:
+    pp-app-v3:
+        driver: bridge
