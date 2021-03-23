@@ -48,7 +48,7 @@ Go to inside docker
 docker exec -it <container_name> bash
 ```
 
-Run require system setup
+Run install dependencies
 ```
 composer install
 php artisan migrate
