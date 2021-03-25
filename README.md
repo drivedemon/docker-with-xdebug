@@ -15,9 +15,11 @@ MYSQL_ROOT_PASSWORD=root
 MYSQL_DATABASE=pp-app-main
 MYSQL_USER=admin
 MYSQL_PASSWORD=1234
-
+```
+If you need connect to other project please add `extra_host` or not just remove this line
+```
 > Please change to mapping path and your IP
-example => extra_host: "{host_name.domain.co.th}:{192.168.1.1}"
+(Example) extra_host: "{host_name.domain.co.th}:{1.1.1.1}"
 ```
 
 Build Image
