@@ -17,7 +17,7 @@ MYSQL_USER=admin
 MYSQL_PASSWORD=1234
 
 > Please change to mapping path and your IP
-extra_host: "{host_name.domain.co.th}:{192.168.1.1}"
+example => extra_host: "{host_name.domain.co.th}:{192.168.1.1}"
 ```
 
 Build Image
