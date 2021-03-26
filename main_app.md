@@ -15,9 +15,6 @@ Main DB config for main-app `base on docker config`
     - FILESYSTEM_DRIVER=s3
     - AWS_KEY={please ask team lead}
     - AWS_SECRET={please ask team lead}
-    - S3_BUCKET=peerpower-dev
-    - S3_ASSET_BUCKET=peerpower-assets
-    - DEFAULT_QUEUE=pp_default
 ```
 
 Data mart config for main-app `require data mart app`
